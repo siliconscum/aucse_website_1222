@@ -1,0 +1,40 @@
+<nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  
+  <div id="home">
+    <!-- content for the home page goes here -->
+  </div>
+  
+  <div id="about">
+    <!-- content for the about page goes here -->
+  </div>
+  
+  <div id="contact">
+    <!-- content for the contact page goes here -->
+  </div>
+
+
+  const navbarLinks = document.querySelectorAll("nav a");
+
+navbarLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    const pageId = e.target.getAttribute("href");
+    const page = document.querySelector(pageId);
+
+    navbarLinks.forEach(link => link.classList.remove("active"));
+    e.target.classList.add("active");
+
+    const pages = document.querySelectorAll("div");
+    pages.forEach(page => page.style.display = "none");
+
+    page.style.display = "block";
+  });
+});
